@@ -5,21 +5,24 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    if params[:category_name] == nil #paramsが無い時はエラーを返す
+    # paramsが無い時はエラーを返す
+    if params[:category_name].nil? || params[:body].nil?
       response_error
       return
     end
     @category = Category.new(category_params)
     @category.name = params[:category_name]
-    if @category.save  #categoriesテーブルにcategory_nameが存在しない場合、両方のテーブルに登録
+    # Categoryテーブルにcategory_nameが存在しない場合、両方のテーブルに登録
+    if @category.save
       @idea = @category.ideas.new(idea_params)
       @idea.body = params[:body]
-      if @idea.save  #ideasテーブルにも登録
+      if @idea.save # Ideaテーブルにも登録
         response_success
       else
         response_error
       end
-    else  #categoriesテーブルにcategory_nameが存在する場合、Ideasのみ登録
+    else
+      # Categoryテーブルにcategory_nameが存在する場合、Ideaテーブルのみ登録
       @category = Category.find_by(name: params[:category_name])
       @idea = @category.ideas.new(idea_params)
       @idea.body = params[:body]
@@ -38,6 +41,6 @@ class CategoriesController < ApplicationController
   end
 
   def idea_params
-    params.fetch(:ideas, {}).permit(:category_id,:body)
+    params.fetch(:ideas, {}).permit(:category_id, :body)
   end
 end

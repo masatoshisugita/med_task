@@ -1,0 +1,41 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'bin/**'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'gems/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - "app/controllers/categories_controller.rb"
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Max: 9
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/IdenticalConditionalBranches:
+  Enabled: false
