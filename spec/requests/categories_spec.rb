@@ -5,6 +5,7 @@ RSpec.describe 'Categories', type: :request do
     @category = FactoryBot.create(:category)
     @idea = FactoryBot.create(:idea)
   end
+
   describe 'POSTでcategory_nameがcategoriesのnameに存在する場合' do
     it 'ideasに登録する' do
       expect { post categories_path, params: { category_name: 'test_name1', body: 'test_body' } }
