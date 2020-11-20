@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 概要
 
-Things you may want to cover:
+* categoriesテーブルとideasテーブルの投稿と取得ができるRailsのAPI
 
-* Ruby version
+# 使い方
 
-* System dependencies
+* 取得の方法（例）　curl -X POST http://localhost:3000/categories -d'category_name=category_test1body=body_test1'
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 投稿の方法（例）　curl -X GET http://localhost:3000/ideas -d 'category_name=category_test10'
