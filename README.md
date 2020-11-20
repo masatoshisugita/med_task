@@ -9,8 +9,8 @@
 
 * 投稿方法（例）
 
-　curl -X POST http://localhost:3000/categories -d'category_name=category_test1body=body_test1'
+　curl -X POST http://localhost:3000/categories -d 'category_name=category_test1&body=body_test1' 
 
 * 取得方法（例）
 
-　curl -X GET http://localhost:3000/ideas -d 'category_name=category_test10'
+　curl -X GET http://localhost:3000/ideas -d 'category_name=category_test1'
